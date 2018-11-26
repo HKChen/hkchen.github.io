@@ -1,2 +1,0 @@
-# hkchen.github.io
-Blog
