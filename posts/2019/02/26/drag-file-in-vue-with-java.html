@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>實作 Vue 拖拉檔案上傳並透過 Java 後端處理 | HKChen</title>
+    <meta name="description" content="&lt; WTF /&gt;">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/theme/favicon.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.fc3db207.css" as="style"><link rel="preload" href="/assets/js/app.29663864.js" as="script"><link rel="preload" href="/assets/js/2.d815b26d.js" as="script"><link rel="prefetch" href="/assets/js/10.d9b0a846.js"><link rel="prefetch" href="/assets/js/3.affd38ad.js"><link rel="prefetch" href="/assets/js/4.8ea24201.js"><link rel="prefetch" href="/assets/js/5.9c642660.js"><link rel="prefetch" href="/assets/js/6.3e8bf6e7.js"><link rel="prefetch" href="/assets/js/7.9d149be9.js"><link rel="prefetch" href="/assets/js/8.42de3ef9.js"><link rel="prefetch" href="/assets/js/9.2520f98f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fc3db207.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><header class="pp-header"><div class="pp-title"><a href="/" class="router-link-active">HKChen</a> <div class="pp-solgan">&lt; WTF /&gt;</div></div></header> <div class="pp-container"><div class="post-container pp-main-content"><div class="container"><article class="post"><h1 class="post-title">
+                實作 Vue 拖拉檔案上傳並透過 Java 後端處理
+            </h1> <div class="post-param"><div class="post-date"><span>2019-02-26</span></div> <div>
+                    /
+                    <span class="post-tags fa fa-tags">
+                        vue
+                    </span><span class="post-tags fa fa-tags">
+                        drag
+                    </span><span class="post-tags fa fa-tags">
+                        java
+                    </span></div></div> <div class="post-content"><div class="content custom"><p>簡單實作 Vue 的拖拉檔案上傳並透過 Ajax 呼叫 Java 後端 API 來處理上傳的檔案內容，後端的部份因為 Server 問題，僅留後端程式碼、注意事項和截圖結果呈現。</p> <p>Demo 以及 CodePen 部分皆只呈現前端頁面的部份並使用 <code>CDN</code> 的方式引入，而 CodePen 有使用 Bootstrap 的按鈕, 上傳 icon 則是 FontAwesome，有需要請自行引入！</p> <p>以下為前端頁面拖拉檔案或點擊上傳的部份，上傳後可以分析出檔案的一些資訊，上傳完後也會出現刪除檔案的按鈕。而範例的 code 會加上呼叫後端 API 的段落並利用 <code>axios</code> 來呼叫。</p> <br> <h2>前端 Demo(不包含呼叫後端 api 但範例 code 會貼上)：</h2> <br> <div id="app" class="demo-bg"><div><div class="dropZone"><div class="dropZone-info"><span class="fa fa-cloud-upload dropZone-title"></span> <span class="dropZone-title">Drop file or click to upload</span> <div class="dropZone-upload-limit-info"><div>extension support: txt</div> <div>maximum file size: 5 MB</div></div></div> <input type="file"></div></div> <div class="uploadedFile-info"><div>fileName: </div> <div>fileZise(bytes): </div> <div>extension：</div></div></div> <p>前往 <a href="https://codepen.io/hkchen/pen/EraZXm">CodePen</a> 觀看</p> <br> <h3>CSS:</h3> <br> <pre slot="codeText"><code class="hljs css"><span class="hljs-selector-class">.dropZone</span> {
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> dashed <span class="hljs-number">#eee</span>;
+}
+
+<span class="hljs-selector-class">.dropZone</span><span class="hljs-selector-pseudo">:hover</span> {
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid <span class="hljs-number">#2e94c4</span>;
+}
+
+<span class="hljs-selector-class">.dropZone</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.dropZone-title</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#1975A0</span>;
+}
+
+<span class="hljs-selector-class">.dropZone-info</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#A8A8A8</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(0, -50%);
+    <span class="hljs-attribute">text-align</span>: center;
+}
+
+<span class="hljs-selector-class">.dropZone-title</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#787878</span>;
+}
+
+<span class="hljs-selector-class">.dropZone</span> <span class="hljs-selector-tag">input</span> {
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">cursor</span>: pointer;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0px</span>;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-class">.dropZone-upload-limit-info</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">justify-content</span>: flex-start;
+    <span class="hljs-attribute">flex-direction</span>: column;
+}
+
+<span class="hljs-selector-class">.dropZone-over</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#5C5C5C</span> <span class="hljs-meta">!important</span>;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.8</span>;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid <span class="hljs-number">#2e94c4</span>;
+}
+
+<span class="hljs-selector-class">.dropZone-uploaded</span> {
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> dashed <span class="hljs-number">#eee</span>;
+}
+
+<span class="hljs-selector-class">.dropZone-uploaded-info</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">flex-direction</span>: column;
+    <span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#A8A8A8</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate</span>(0, -50%);
+    <span class="hljs-attribute">text-align</span>: center;
+}
+
+<span class="hljs-selector-class">.removeFile</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;
+}
+
+<span class="hljs-selector-class">.btn-primary</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#1170C8</span>;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
+}</code></pre> <br> <h3>HTML:</h3> <br> <pre slot="codeText"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"!file"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">"['dropZone', dragging ? 'dropZone-over' : '']"</span> @<span class="hljs-attr">dragestart</span>=<span class="hljs-string">"dragging = true"</span> @<span class="hljs-attr">dragenter</span>=<span class="hljs-string">"dragging = true"</span> @<span class="hljs-attr">dragleave</span>=<span class="hljs-string">"dragging = false"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropZone-info"</span> @<span class="hljs-attr">drag</span>=<span class="hljs-string">"onChange"</span>&gt;</span>
+                <span class="hljs-comment">&lt;!-- font-awesome upload icon --&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-cloud-upload dropZone-title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropZone-title"</span>&gt;</span>Drop file or click to upload<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropZone-upload-limit-info"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>extension support: txt<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>maximum file size: 5 MB<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> @<span class="hljs-attr">change</span>=<span class="hljs-string">"onChange"</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-else</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropZone-uploaded"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropZone-uploaded-info"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropZone-title"</span>&gt;</span>Uploaded<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary removeFile"</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"removeFile"</span>&gt;</span>Remove File<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"uploadedFile-info"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>fileName: {{ file.name }}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>fileZise(bytes): {{ file.size }}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>extension：{{ extension }}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre> <br> <h3>JavaScript:</h3> <br> <pre slot="codeText"><code class="hljs js">&lt;script src=<span class="hljs-string">"https://unpkg.com/vue@2.5.22/dist/vue.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+&lt;script src=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+
+<span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> Vue({
+    <span class="hljs-attr">el</span>: <span class="hljs-string">'app'</span>,
+    data() {
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">file</span>: <span class="hljs-string">''</span>,
+            <span class="hljs-attr">dragging</span>: <span class="hljs-literal">false</span>
+        }
+    },
+    <span class="hljs-attr">methods</span>: {
+        onChange(e) {
+            <span class="hljs-comment">// 判斷拖拉上傳或點擊上傳的 event</span>
+            <span class="hljs-keyword">var</span> files = e.target.files || e.dataTransfer.files;
+
+            <span class="hljs-comment">// 預防檔案為空檔</span>
+            <span class="hljs-keyword">if</span> (!files.length) {
+                <span class="hljs-keyword">this</span>.dragging = <span class="hljs-literal">false</span>;
+                <span class="hljs-keyword">return</span>;
+            }
+
+            <span class="hljs-keyword">this</span>.createFile(files[<span class="hljs-number">0</span>]);
+        },
+        createFile(file) {
+            <span class="hljs-comment">// 附檔名判斷</span>
+            <span class="hljs-keyword">if</span> (!file.type.match(<span class="hljs-string">'text.*'</span>)) {
+                alert(<span class="hljs-string">'please select txt file'</span>);
+                <span class="hljs-keyword">this</span>.dragging = <span class="hljs-literal">false</span>;
+                <span class="hljs-keyword">return</span>;
+            }
+
+            <span class="hljs-comment">// 檔案大小判斷</span>
+            <span class="hljs-keyword">if</span> (file.size &gt; <span class="hljs-number">5000000</span>) {
+                alert(<span class="hljs-string">'please check file size no more than 5 MB'</span>)
+                <span class="hljs-keyword">this</span>.dragging = <span class="hljs-literal">false</span>;
+                <span class="hljs-keyword">return</span>;
+            }
+
+            <span class="hljs-keyword">this</span>.file = file;
+            <span class="hljs-keyword">this</span>.dragging = <span class="hljs-literal">false</span>;
+
+            <span class="hljs-comment">// axios post 的 url 記得更換你自己的 api url</span>
+            <span class="hljs-keyword">let</span> json = <span class="hljs-keyword">new</span> FormData();
+            json.append(<span class="hljs-string">'uploadFile'</span>, <span class="hljs-keyword">this</span>.file)
+
+            axios.post(<span class="hljs-string">'http://localhost:8080/uploadFile'</span>, json
+                {
+                    <span class="hljs-attr">headers</span>: {
+                        <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'multipart/form-data'</span>
+                    }
+                })
+                .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
+                    <span class="hljs-keyword">if</span> (res.data !== <span class="hljs-literal">null</span> &amp;&amp; res.data.length &gt; <span class="hljs-number">1</span>) {
+                        <span class="hljs-built_in">console</span>.log(res.data)
+                    }
+                })
+        },
+        removeFile() {
+            <span class="hljs-keyword">this</span>.file = <span class="hljs-string">''</span>;
+        }
+    },
+    <span class="hljs-attr">computed</span>: {
+        <span class="hljs-comment">// 前端擷取附檔名</span>
+        extension() {
+            <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.file) ? <span class="hljs-keyword">this</span>.file.name.split(<span class="hljs-string">'.'</span>).pop() : <span class="hljs-string">''</span>;
+        }
+    }
+});</code></pre> <br> <br> <h2>後端 Java 部分(以 SrpingMVC 為例子)：</h2> <br> <h3 style="color:red">configuration multipartResolver(我的環境是在 applicationContext-webapp.xml 底下):</h3> <br> <p>如果沒有設定會噴 <code>error log</code>!</p> <br> <pre slot="codeText"><code class="hljs xml"><span class="hljs-comment">&lt;!-- for &lt;form ... enctype="multipart/form-data" /&gt; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"multipartResolver"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- The maximum file size in bytes --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"maxUploadSize"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"5000000"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></code></pre> <br> <h3>controller:</h3> <br> <pre slot="codeText"><code class="hljs java">...
+<span class="hljs-comment">// your file process service</span>
+<span class="hljs-meta">@Autowired</span> FileSerivce fileService;
+...
+<span class="hljs-meta">@PostMapping</span>(<span class="hljs-string">"uploadFile"</span>)
+<span class="hljs-meta">@ResponseBody</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">searchSimilarDocumentByDocument</span><span class="hljs-params">(@RequestParam(<span class="hljs-string">"uploadFile"</span>)</span> MultipartFile file) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> fileService.txtToString(file);
+}
+...</code></pre> <br> <h3>service:</h3> <br> <pre slot="codeText"><code class="hljs java">...
+<span class="hljs-comment">// 不過這個做成 utils 可能比較適合</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">txtToString</span><span class="hljs-params">(MultipartFile file)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> String(file.getBytes(), <span class="hljs-string">"UTF-8"</span>).trim();
+}
+...</code></pre> <br> <h3>Test Result:</h3> <br> <h4>input: test.txt</h4> <h4>context: 測試文件</h4> <div class="post-img"><img src="/images/drag-file/01.jpg"></div> <h4>log result:</h4> <div class="post-img"><img src="/images/drag-file/02.jpg"></div> <h3>Note:</h3> <p>code 都是簡單的範例應用，礙於 server 緣故，後端的實作基本上就是貼重要的 code 和擷取結果，之後前端利用 <code>axios</code> 接收到剛剛的結果在看要怎麼去處理像是輸出的某些地方之類的。而真實使用的時候一些例外處理還有副檔名前後端處理，最後前端要取的什麼訊息或錯誤訊息都得記得補上哦。</p></div></div></article></div> <div class="disqus"><div id="disqus_thread" class="container"></div></div> <div class="pp-limiter container"><div class="post-links row"><span class="pp-prev col-xl-6 col-lg-6 col-sm-6 col-12"><!----></span> <span class="pp-next col-xl-6 col-lg-6 col-sm-6 col-12"><a href="/posts/2019/01/19/tomcat9-install-jmx-with-zabbix.html" class="post-link">
+                安裝 JMX 管理 Tomcat 9 並透過 Zabbix 4 監控
+            </a></span></div></div></div></div> <div class="pp-about"><div class="container"><div class="pp-block"><div class="pp-avatar"><img src="/images/theme/avatar.jpg"></div> <div class="pp-info"><h3 class="pp-name">HK Chen</h3> <p class="pp-says">我什麼都不會</p> <div class="pp-links"><a href="mailto:ilikeiceblue@gmail.com" class="fa fa-envelope"></a> <a target="_blank" href="https://github.com/hkchen" class="fa fa-github-square"></a></div></div></div></div></div> <footer class="pp-footer"><span class="pp-footer-text">Copyright © HK Chen</span></footer></div></div>
+    <script src="/assets/js/app.29663864.js" defer></script><script src="/assets/js/2.d815b26d.js" defer></script>
+  </body>
+</html>
