@@ -6,239 +6,379 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>吃什麼</title>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="https://cdn.sobekrepository.org/includes/jquery-rotate/2.2/jquery-rotate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
 
     <style>
-         html, body, button{
-            font-family: Arial, sans-serif;
+        @import url('https://fonts.googleapis.com/css?family=Material+Icons|Work+Sans:400,700,900');
+        body {
+        overflow: hidden;
         }
-        button{
-            border:0;
-            margin:0;
-            padding:0;
+        .roulette {
+        font-family: 'Work Sans', sans-serif;
+        display: block;
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        top: 50%;
+        left: 50%;
+        margin-top: -200px;
+        margin-left: -200px;
         }
-        .title{
-            margin-top:50px;
-            text-align:center;
+        .roulette .shadow {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        box-shadow: 0 0.3em 0 rgba(0, 0, 0, .25) inset;
         }
-        .box-roulette{
-            position:relative;
-            margin:50px auto;
-            width:500px;
-            height:500px;
-            border:10px solid #ccc;
-            border-radius:50%;
-            background:#ccc;
-            overflow:hidden;
+        .roulette .markers {
+        display: block;
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        right: -1px;
+        bottom: -1px;
+        overflow: hidden;
+        border-radius: 100%;
         }
-        .box-roulette .markers{
-            position:absolute;
-            left:50%;
-            top:0;
-            margin-left:-25px;
-            width:0;
-            height:0;
-            border:25px solid #fff;
-            border-left-color:transparent;
-            border-right-color:transparent;
-            border-bottom-color:transparent;
-            z-index:9999;
+        .roulette .markers .marker {
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -200px;
+        left: 200px;
+        transform-origin: 0% 400px;
+        border: 0 solid transparent;
         }
-        .box-roulette .roulette{
-            position:relative;
-            width:100%;
-            height:100%;
-            overflow:hidden;
+        .roulette .markers .triangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 1em 0 1em 1em;
+        border-color: transparent transparent transparent #007bff;
+        position: absolute;
+        border-left-color: #fff;
+        top: 50%;
+        left: -1px;
+        margin-top: -1em;
+        filter: drop-shadow(0 0.25em 0 rgba(0, 0, 0, 0.25));
         }
-        .box-roulette .item{
-            position:absolute;
-            top:0;
-            width:0;
-            height:0;
-            border:0 solid transparent;
-            transform-origin:0 100%;
+        .roulette .spinner {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        overflow: hidden;
+        transform: rotateZ(0deg);
+        /*performance boost*/
+        backface-visibility: hidden;
         }
-        .box-roulette .label{
-            position:absolute;
-            left:0;
-            top:0;
-            color:#fff;
-            white-space:nowrap;
-            transform-origin:0 0;
+        .roulette .spinner .item {
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -200px;
+        left: 200px;
+        transform-origin: 0% 400px;
+        border: 0 solid transparent;
         }
-        .box-roulette .label .text{
-            display:inline-block;
-            font-size:20px;
-            font-weight:bold;
-            line-height:1;
-            vertical-align:middle;
+        .roulette .spinner .item .label {
+        display: block;
+        position: absolute;
+        color: #fff;
+        font-weight: 800;
+        top: 0;
+        left: 0;
+        white-space: nowrap;
+        transform-origin: 0 0;
+        font-size: 0.8em;
         }
-        #btn-start{
-            display:block;
-            position:absolute;
-            left:50%;
-            top:50%;
-            margin:-50px 0 0 -50px;
-            width:100px;
-            height:100px;
-            font-weight:bold;
-            background:#fff;
-            border-radius:50px;
-            z-index:9999;
-            cursor:pointer;
+        .roulette .spinner .item .label i, .roulette .spinner .item .label .text {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1;
+        font-size: 1em;
+        text-indent: 0;
+        }
+        .roulette .spinner .item .label i {
+        margin-right: 0.1em;
+        }
+        .roulette .button {
+        width: 10em;
+        height: 10em;
+        line-height: 10em;
+        top: 50%;
+        left: 50%;
+        margin-left: -5em;
+        margin-top: -5em;
+        font-weight: 800;
+        z-index: 998;
+        position: absolute;
+        background: #fff;
+        border: none;
+        border-radius: 100%;
+        color: #999;
+        outline: none;
+        cursor: pointer;
+        user-select: none;
+        box-shadow: 0 0.4em 0 rgba(0, 0, 0, .25);
+        text-align: center;
+        transition: transform 0.15s;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        .roulette .button:hover {
+        color: inherit;
+        }
+        .roulette .button span {
+        font-size: 1.6em;
+        letter-spacing: -0.05em;
+        }
+        .roulette.busy .button {
+        transform: scale(0.9);
+        box-shadow: 0 0.15em 0 rgba(0, 0, 0, .25);
+        color: #999;
+        cursor: default;
+        }
+        /* CUSTOM LABELS */
+        .roulette .spinner .item[data-type="quiz"] .label {
+        font-size: 1.5em;
+        }
+        .roulette .spinner .item[data-type="question"] .label {
+        font-size: 1.3em;
+        font-weight: 600;
+        }
+        .roulette .spinner .item[data-type="replay"] .label .text {
+        font-size: 0.6em;
+        white-space: initial;
+        width: 1em;
+        text-align: center;
+        line-height: 1.2;
+        }
+        .roulette .spinner .item[data-type="replay"] .label i {
+        font-size: 1.5em;
+        }
+        .roulette .spinner .item[data-type="time"] .label i {
+        font-size: 1.5em;
         }
     </style>
 
     <script>
-        (function($) {
-            $.fn.extend({
+        var data = [
+        //{ id: '', color: '#3f297e', text: 'ALL IN', ikon: 'invert_colors' },
+        // { id: '', type: 'allin', color: '#3f297e', text: '7-11', ikon: 'grade' },
+        // { id: '', type: 'quiz', color: '#1d61ac', text: '咖食堂' },
+        // { id: '', type: 'quiz', color: '#169ed8', text: '麵' },
+        // { id: '', type: 'quiz', color: '#209b6c', text: '蒸餃' },
+        { id: '', color: '#60b236', text: '熱炒', ikon: 'stars' },
+        { id: '', color: '#3f297e', text: '飯' },
+        { id: '', color: '#f7a416', text: '義式' },
+        { id: '', color: '#e6471d', text: '蒸餃'},
+        { id: '', color: '#dc0936', text: '菜市場' },
+        { id: '', color: '#e5177b', text: '不知道' },
+        { id: '', color: '#be107f', text: '咖食堂' },
+        { id: '', color: '#881f7e', text: '肉丸'},
+        { id: '', color: '#1d61ac', text: '鵝肉'},
+        { id: '', color: 'green', text: '7-11',}
+        ];
 
-                roulette: function(options) {
+        var RouletteWheel = function(el, items){
+        this.$el = $(el);
+        this.items = items || [];
+        this._bis = false;
+        this._angle = 0;
+        this._index = 0;
+        this.options = {
+            angleOffset: -90
+        }
+        }
 
-                var defaults = {
-                    angle: 0,
-                    angleOffset: -45,
-                    speed: 5000,
-                    easing: "easeInOutElastic",
-                };
+        _.extend(RouletteWheel.prototype, Backbone.Events);
 
-                var opt = $.extend(defaults, options);
-
-                return this.each(function() {
-                    var o = opt;
-                            
-                    var data = [
-                                {
-                        color: '#3f297e',
-                        text: '肉丸店'
-                    },
-                    {
-                        color: '#1d61ac',
-                        text: '隔壁鵝肉'
-                    },
-                    {
-                        color: '#169ed8',
-                        text: '蒸餃'
-                    },
-                    {
-                        color: '#209b6c',
-                        text: '菜市場亂逛'
-                    },
-                    {
-                        color: '#60b236',
-                        text: '小7'
-                    },
-                    {
-                        color: '#efe61f',
-                        text: '咖食堂'
-                    },
-                    {
-                        color: '#f7a416',
-                        text: '集體絕食'
-                    },
-                    {
-                        color: '#e6471d',
-                        text: '給毛最多選'
-                    }
-                    ];
-
-                    var $wrap = $(this);
-                    var $btnStart = $wrap.find("#btn-start");
-                    var $roulette = $wrap.find(".roulette");
-                    var wrapW = $wrap.width();
-                    var angle = o.angle;
-                    var angleOffset = o.angleOffset;
-                    var speed = o.speed;
-                    var esing = o.easing;
-                    var itemSize = data.length;
-                    var itemSelector = "item";
-                    var labelSelector = "label";
-                    var d = 360 / itemSize;
-                    var borderTopWidth = wrapW;
-                    var borderRightWidth = tanDeg(d);
-
-                    for (i = 1; i <= itemSize; i += 1) {
-                    var idx = i - 1;
-                    var rt = i * d + angleOffset;
-                    var itemHTML = $('<div class="' + itemSelector + '">');
-                    var labelHTML = '';
-                        labelHTML += '<p class="' + labelSelector + '">';
-                        labelHTML += '	<span class="text">' + data[idx].text + '<\/span>';
-                        labelHTML += '<\/p>';
-
-                    $roulette.append(itemHTML);
-                    $roulette.children("." + itemSelector).eq(idx).append(labelHTML);
-                    $roulette.children("." + itemSelector).eq(idx).css({
-                        "left": wrapW / 2,
-                        "top": -wrapW / 2,
-                        "border-top-width": borderTopWidth,
-                        "border-right-width": borderRightWidth,
-                        "border-top-color": data[idx].color,
-                        "transform": "rotate(" + rt + "deg)"
-                    });
-
-                    var textH = parseInt(((3 * Math.PI * wrapW) / d) * .8);
-
-                    $roulette.children("." + itemSelector).eq(idx).children("." + labelSelector).css({
-                        "height": textH + 'px',
-                        "line-height": textH + 'px',
-                        "transform": 'translateX(' + (textH * 1.3) + 'px) translateY(' + (wrapW * -.3) + 'px) rotateZ(' + (90 + d * .5) + 'deg)'
-                    });
-
-                    }
-
-                    function tanDeg(deg) {
-                    var rad = deg * Math.PI / 180;
-                    return wrapW / (1 / Math.tan(rad));
-                    }
-
-
-                    $btnStart.on("click", function() {
-                    rotation();
-                    });
-
-                    function rotation() {
-
-                    var completeA = 360 * r(5, 10) + r(0, 360);
-
-                    $roulette.rotate({
-                        angle: angle,
-                        animateTo: completeA,
-                        center: ["50%", "50%"],
-                        easing: $.easing.esing,
-                        callback: function() {
-                        var currentA = $(this).getRotateAngle();
-                                        var currentB = (8-Math.floor(currentA[0]%360/45));
-                                        
-                                        console.log(currentB);
-                        },
-                        duration: speed
-                    });
-                    }
-                    function r(min, max) {
-                    return Math.floor(Math.random() * (max - min + 1)) + min;
-                    }
-
-                });
-                }
-            });
-        })(jQuery);
-
-        $(function() {
-            $('.box-roulette').roulette();
+        RouletteWheel.prototype.spin = function(_index){
+        
+        var count = this.items.length;
+        var delta = 360/count;
+        var index = !isNaN(parseInt(_index))? parseInt(_index) : parseInt(Math.random()*count);
+            
+        var a = index * delta + ((this._bis)? 1440 : -1440);
+        
+        //a+=this.options.angleOffset;
+        
+        this._bis = !this._bis;
+        this._angle = a;
+        this._index = index;
+        
+        var $spinner = $(this.$el.find('.spinner'));
+        
+        var _onAnimationBegin = function(){
+            this.$el.addClass('busy');
+            this.trigger('spin:start',this);
+        }
+        
+        var _onAnimationComplete = function(){
+            this.$el.removeClass('busy');
+            this.trigger('spin:end',this);
+        }
+        
+        $spinner
+        .velocity('stop')
+        .velocity({
+            rotateZ: a +'deg'
+        },{
+            //easing: [20, 7],
+            //easing: [200, 20],
+            easing: 'easeOutQuint',
+            duration: 1000,
+            begin: $.proxy(_onAnimationBegin,this),
+            complete: $.proxy(_onAnimationComplete,this)
         });
+        
+        }
+        
+        RouletteWheel.prototype.render = function(){
+        
+        var $spinner = $(this.$el.find('.spinner'));
+        var D = this.$el.width();
+        var R = D*.5;
+
+        var count = this.items.length;
+        var delta = 360/count;
+        
+        for(var i=0; i<count; i++){
+            
+            var item = this.items[i];
+            
+            var color = item.color;
+            var text = item.text;
+            var ikon = item.ikon;
+            
+            var html = [];
+            html.push('<div class="item" ');
+            html.push('data-index="'+i+'" ');
+            html.push('data-type="'+item.type+'" ');
+            html.push('>');
+            html.push('<span class="label">');
+            if(ikon)
+            html.push('<i class="material-icons">'+ikon+'</i>');
+            html.push('<span class="text">'+text+'</span>');
+            html.push('</span>');
+            html.push('</div>');
+            
+            var $item = $(html.join(''));
+            
+            var borderTopWidth = D + D*0.0025; //0.0025 extra :D
+            var deltaInRadians = delta * Math.PI / 180;
+            var borderRightWidth = D / ( 1/Math.tan(deltaInRadians) );
+            
+            var r = delta*(count-i) + this.options.angleOffset - delta*.5;
+            
+            $item.css({
+            borderTopWidth: borderTopWidth,
+            borderRightWidth: borderRightWidth,
+            transform: 'scale(2) rotate('+ r +'deg)',
+            borderTopColor: color
+            });
+            
+            var textHeight = parseInt(((2*Math.PI*R)/count)*.5);
+                
+            $item.find('.label').css({
+            //transform: 'translateX('+ (textHeight) +'px) translateY('+  (-1 * R) +'px) rotateZ('+ (90 + delta*.5) +'deg)',
+            transform: 'translateY('+ (D*-.25) +'px) translateX('+  (textHeight*1.03) +'px) rotateZ('+ (90 + delta*.5) +'deg)',
+            height: textHeight+'px',
+            lineHeight: textHeight+'px',
+            textIndent: (R*.1)+'px'
+            });
+            
+            $spinner.append($item);
+            
+        }
+        
+        $spinner.css({
+            fontSize: parseInt(R*0.06)+'px'
+        })
+        
+        //this.renderMarker();
+
+        
+        }
+
+        RouletteWheel.prototype.renderMarker = function(){
+        
+        var $markers = $(this.$el.find('.markers'));
+        var D = this.$el.width();
+        var R = D*.5;
+
+        var count = this.items.length;
+        var delta = 360/count;
+            
+        var borderTopWidth = D + D*0.0025; //0.0025 extra :D
+        var deltaInRadians = delta * Math.PI / 180;
+        var borderRightWidth = (D / ( 1/Math.tan(deltaInRadians) ));
+
+        var i = 0;  
+        var $markerA = $('<div class="marker">');
+        var $markerB = $('<div class="marker">');
+
+        var rA = delta*(count-i-1) - delta*.5 + this.options.angleOffset;
+        var rB = delta*(count-i+1) - delta*.5 + this.options.angleOffset;
+            
+        $markerA.css({
+            borderTopWidth: borderTopWidth,
+            borderRightWidth: borderRightWidth,
+            transform: 'scale(2) rotate('+ rA +'deg)',
+            borderTopColor: '#FFF'
+        });
+        $markerB.css({
+            borderTopWidth: borderTopWidth,
+            borderRightWidth: borderRightWidth,
+            transform: 'scale(2) rotate('+ rB +'deg)',
+            borderTopColor: '#FFF'
+        })
+        
+        $markers.append($markerA);
+        $markers.append($markerB);
+        
+        }
+
+        RouletteWheel.prototype.bindEvents = function(){
+        this.$el.find('.button').on('click', $.proxy(this.spin,this));
+        }
+
+
+        var spinner;
+        $(window).ready(function(){
+        
+        spinner = new RouletteWheel($('.roulette'), data);
+        spinner.render();
+        spinner.bindEvents();
+        
+        spinner.on('spin:start', function(r){ console.log('spin start!') });
+        spinner.on('spin:end', function(r){ console.log('spin end! -->'+ r._index) });
+        
+        })
     </script>
 </head>
 <body>
-    <p class="title">今天吃什麼</p>
-    
-    <div class="box-roulette">
-        <div class="markers"></div>
-        <button type="button" id="btn-start">轉下去</button>
-        <div class="roulette" id="roulette"></div>
-        <div class="currentB" id="currentB"></div>
+    <div class="roulette">
+      <div class="spinner"></div>
+      <div class="shadow"></div>
+      <div class="markers">
+        <div class="triangle">
+          
+        </div>
+      </div>
+      <div class="button">
+        <span>SPIN</span>
+      </div>
     </div>
 </body>
 </html>
