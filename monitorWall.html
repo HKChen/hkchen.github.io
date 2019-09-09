@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Monitor Wall</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+
+    <style>
+        .monitor-label-box {
+            background-color: #999d9c;
+            margin-bottom: 1.4rem;
+            border: 2px black solid;
+            font-size: 3rem;
+        }
+
+        .monitor-label-box:hover {
+            cursor: pointer;
+        }
+
+        .monitor-content-box {
+            background-color: white;
+            margin-bottom: 1.4rem;
+            border: 2px black solid;
+            font-size: 3rem;
+        }
+
+        .monitor-content-box:hover {
+            cursor: auto;
+        }
+
+        .monitor-siginal-success::before {
+            content: ' \25CF';
+            color: green;
+            padding-left: 10px;
+        }
+
+        .monitor-siginal-warning::before {
+            content: ' \25CF';
+            color: rgb(207, 232, 47);
+            padding-left: 10px;
+        }
+
+        .monitor-siginal-faild::before {
+            content: ' \25CF';
+            color: red;
+            padding-left: 10px;
+        }
+
+        .monitor-context-message-box {
+            border: 2px black solid;
+        }
+
+        .monitor-spread-box {
+            margin-bottom: 1rem;
+        }
+
+        .monitor-spread-box:first-child {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <h1>{{ message }}</h1>
+            <div class="row">
+                <div class="col-sm-12 monitor-label-box">
+                    <div class="col-sm-12" data-toggle="collapse" href="#collapse1">
+                        <div class="col-sm-6">
+                            <span class="monitor-label">Process 1</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="monitor-siginal-success">1</span>
+                            <span class="monitor-siginal-warning">1</span>
+                            <span class="monitor-siginal-faild">1</span>
+                        </div>
+                    </div>
+                    <div id="collapse1" class="col-sm-12 monitor-content-box panel-collapse collapse">
+                        <div class="col-sm-12 monitor-spread-box">
+                            <div class="col-sm-4">
+                                <span class="monitor-siginal-success">Spread IC</span>
+                            </div>
+                            <div class="col-sm-7 monitor-context-message-box">
+                                message
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="label label-danger">restart</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 monitor-spread-box">
+                            <div class="col-sm-4">
+                                <span class="monitor-siginal-warning">Trading Together</span>
+                            </div>
+                            <div class="col-sm-7 monitor-context-message-box">
+                                message
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="label label-danger">restart</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 monitor-spread-box">
+                            <div class="col-sm-4">
+                                <span class="monitor-siginal-faild">Margin</span>
+                            </div>
+                            <div class="col-sm-7 monitor-context-message-box">
+                                message
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="label label-danger">restart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 monitor-label-box">
+                    <div class="col-sm-12" data-toggle="collapse" href="#collapse2">
+                        <div class="col-sm-6">
+                            <span class="monitor-label">Process 2</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="monitor-siginal-success">0</span>
+                            <span class="monitor-siginal-warning">1</span>
+                            <span class="monitor-siginal-faild">2</span>
+                        </div>
+                    </div>
+                    <div id="collapse2" class="col-sm-12 monitor-content-box panel-collapse collapse">
+                        <div class="col-sm-12 monitor-spread-box">
+                            <div class="col-sm-4">
+                                <span class="monitor-siginal-faild">Price AU2</span>
+                            </div>
+                            <div class="col-sm-7 monitor-context-message-box">
+                                message
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="label label-danger">restart</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 monitor-spread-box">
+                            <div class="col-sm-4">
+                                <span class="monitor-siginal-faild">Commission</span>
+                            </div>
+                            <div class="col-sm-7 monitor-context-message-box">
+                                message
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="label label-danger">restart</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 monitor-spread-box">
+                            <div class="col-sm-4">
+                                <span class="monitor-siginal-warning">Jass awesome</span>
+                            </div>
+                            <div class="col-sm-7 monitor-context-message-box">
+                                message
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="label label-danger">restart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Monitor Wall'
+            }
+        })
+    </script>
+</body>
+</html>
