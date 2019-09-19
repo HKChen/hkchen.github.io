@@ -104,10 +104,28 @@
     <script>
         $(function() {
             dragElement(document.getElementById("aaa"));
+            
 
             $('#aaa').click(function(e) {
                 e.stopPropagation();
             });
+
+            $('#bbb').click(function(e) {
+              e.stopPropagation();
+            });
+
+            $('#note').on({
+              "shown.bs.dropdown": function() { this.closable = false; },
+              "click":             function() { this.closable = true; },
+              "hide.bs.dropdown":  function() { return this.closable; }
+            });
+
+            $('#note1').on({
+              "shown.bs.dropdown": function() { this.closable = false; },
+              "click":             function() { this.closable = true; },
+              "hide.bs.dropdown":  function() { return this.closable; }
+            });
+          
 
             function dragElement(elmnt) {
                 var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -154,6 +172,7 @@
     </script>
 </head>
 <body>
+    <input type="password" class="form-control">
         <!-- Toolbar -->
     <div class="menu">
         <div id="note" class="dropleft patent-toolbox">
@@ -196,8 +215,7 @@
                     <div>
                       <button type="button" class="btn btn-lg btn-patent-note">
                         <i aria-hidden="true" class=""></i>
-                          2019-09-12 <br/>
-                            comment 2
+                          + add comment
                       </button>
                     </div>
                   </div>
@@ -205,6 +223,59 @@
               </div>
             </ul>
         </div>
+
+        <div id="note1" class="dropleft patent-toolbox">
+          <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="筆記" class="">
+            <i aria-hidden="true" class="fa fa-book"></i>
+          </a> 
+        
+          <ul id="bbb" class="dropdown-menu" style="width: 500px;position: fixed" draggable="true">
+            <div no-print="true" class="row fh5co-con" style="margin: 0px;">
+                <div>
+                  <div class="alert alert-block alert-warning" style="font-size: unset; border-color: transparent; margin: 0px;">
+                    <div class="form-group">
+                      <label for="usr">Name:</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="pwd">Date:</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="sel1">Identify From:</label>
+                      <select class="form-control" id="sel1">
+                        <option>trading together</option>
+                        <option>good trader</option>
+                        <option>scalper</option>
+                        <option>swap taker</option>
+                        <option>swap taker</option>
+                        <option>swap taker</option>
+                        <option>swap taker</option>
+                        <option>swap taker</option>
+                        <option>swap taker</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="pwd">Comment:</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="pwd">Linked Account:</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="pwd">Suggest:</label>
+                      <input type="text" class="form-control">
+                    </div>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-secondary">Save</button>
+                      <button type="button" class="btn btn-secondary">Cancel</button>  
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </ul>
+      </div>
     </div>
 </body>
 </html>
