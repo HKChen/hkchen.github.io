@@ -115,6 +115,19 @@
 			background-color: #2196F3;
 			color: #fff;
 		}
+
+		.close-box {
+			background-color: #2196F3;
+			color: #fff;
+			display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+		}
+
+		.close-btn {
+			cursor: pointer;
+		}
     </style>
 
     <script>
@@ -127,53 +140,58 @@
 <body>
 	<div id="toolbar">
 		<div id="mydiv" v-show="isFloatShow">
-			<div id="mydivheader">Click here to move</div>
-			<ul class="nav nav-tabs">
-				<li class="active"><a data-toggle="tab" href="#card1">Card 1</a></li>
-				<li><a data-toggle="tab" href="#card2">Card 2</a></li>
-				<li><a data-toggle="tab" href="#card3">Card 3</a></li>
-				<li><a data-toggle="tab" href="#add">+ add</a></li>
-			</ul>
-					
-			<div class="tab-content">
-				<div id="card1" class="tab-pane fade in active">
-					<h3>Card 1</h3>
-					<p>Some content.</p>
-				</div>
-				<div id="card2" class="tab-pane fade">
-					<h3>Card 2</h3>
-					<p>Some content in card 2.</p>
-				</div>
-				<div id="card3" class="tab-pane fade">
-					<h3>Card 3</h3>
-					<p>Some content in card 3.</p>
-				</div>
-				<div id="add" class="tab-pane fade" style="margin-top: 10px">
-					<div class="col-md-3">
-						<label>Name:</label>
+			<div class="col-md-12 close-box">
+				<div id="mydivheader" class="col-md-10">Click here to move</div>
+				<div class="col-md-2" @click="isShowCard"><i class="fa fa-times-circle-o fa-2x close-btn" aria-hidden="true"></i></div>
+			</div>
+			<div class="col-md-12">
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#card1">Card 1</a></li>
+					<li><a data-toggle="tab" href="#card2">Card 2</a></li>
+					<li><a data-toggle="tab" href="#card3">Card 3</a></li>
+					<li><a data-toggle="tab" href="#add">+ add</a></li>
+				</ul>
+						
+				<div class="tab-content">
+					<div id="card1" class="tab-pane fade in active">
+						<h3>Card 1</h3>
+						<p>Some content.</p>
 					</div>
-					<div class="col-md-9">
-						<input type="text" class="form-control">
+					<div id="card2" class="tab-pane fade">
+						<h3>Card 2</h3>
+						<p>Some content in card 2.</p>
 					</div>
-					<div class="col-md-12">
-						<label>Identify From:</label>
-						<multiselect v-model="value" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
+					<div id="card3" class="tab-pane fade">
+						<h3>Card 3</h3>
+						<p>Some content in card 3.</p>
 					</div>
-					<div class="col-md-12">
-						<label>Comment:</label>
-						<input type="text" class="form-control">
-					</div>
-					<div class="col-md-12">
-						<label>Linked Account:</label>
-						<input type="text" class="form-control">
-					</div>
-					<div class="col-md-12">
-						<label>Suggest:</label>
-						<input type="text" class="form-control">
-					</div>
-					<div class="col-md-12" role="group" style="padding-top: 10px;">
-						<button type="button" class="btn btn-primary">Save</button>
-						<button type="button" class="btn btn-danger">Cancel</button>  
+					<div id="add" class="tab-pane fade" style="margin-top: 10px">
+						<div class="col-md-3">
+							<label>Name:</label>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control">
+						</div>
+						<div class="col-md-12">
+							<label>Identify From:</label>
+							<multiselect v-model="value" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
+						</div>
+						<div class="col-md-12">
+							<label>Comment:</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="col-md-12">
+							<label>Linked Account:</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="col-md-12">
+							<label>Suggest:</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="col-md-12" role="group" style="padding-top: 10px;">
+							<button type="button" class="btn btn-primary">Save</button>
+							<button type="button" class="btn btn-danger">Cancel</button>  
+						</div>
 					</div>
 				</div>
 			</div>
