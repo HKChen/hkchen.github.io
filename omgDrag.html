@@ -21,7 +21,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-multiselect@2.1.0"></script>
+	<script src="https://unpkg.com/vue-multiselect@2.1.0"></script>
+
 
     <style>
         .menu {
@@ -38,253 +39,199 @@
             font-size: 1.6em;
             text-align: center;
             border-radius: 10px 0 0 10px;
-          }
+        }
+        
           
-          .menu div {
-              /* display: inline;
-            margin-right: 17px; */
-          }
-          
-          /* dropleft copy from BootStrap 4 */
-          
-          .dropleft {
-              position: relative;
-          }
-          
-          .dropleft .dropdown-menu {
-              top: 0.4rem;
-              right: 35px;
-              left: auto;
-              margin-top: 0;
-              margin-right: 0.125rem;
-          }
-          
-          .dropleft .dropdown-toggle::after {
-              display: inline-block;
-              width: 0;
-              height: 0;
-              margin-left: 0.255em;
-              vertical-align: 0.255em;
-              content: "";
-          }
-          
-          .dropleft .dropdown-toggle::after {
-              display: none;
-          }
-          
-          .dropleft .dropdown-toggle::before {
-              display: inline-block;
-              width: 0;
-              height: 0;
-              margin-right: 0.3em;
-              vertical-align: 0.255em;
-              content: "";
-              border-top: 0.3em solid transparent;
-              border-right: 0.3em solid;
-              border-bottom: 0.3em solid transparent;
-          }
-          
-          .dropleft .dropdown-toggle:empty::after {
-              margin-left: 0;
-          }
-          
-          .dropleft .dropdown-toggle::before {
-              vertical-align: 0;
-          }
-          
-          .patent-toolbox a {
-              color: #fff;
-              text-decoration: none;
-          }
-          
-          .patent-toolbox a:hover, .patent-toolbox a:focus {
-              color: #374454;
-          }
-      
-          [draggable="true"] {
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-          }
+		/* dropleft copy from BootStrap 4 */
+		
+		.dropleft {
+			position: relative;
+		}
+		
+		.dropleft .dropdown-menu {
+			top: 0.4rem;
+			right: 35px;
+			left: auto;
+			margin-top: 0;
+			margin-right: 0.125rem;
+		}
+		
+		.dropleft .dropdown-toggle::after {
+			display: inline-block;
+			width: 0;
+			height: 0;
+			margin-left: 0.255em;
+			vertical-align: 0.255em;
+			content: "";
+		}
+		
+		.dropleft .dropdown-toggle::after {
+			display: none;
+		}
+		
+		.dropleft .dropdown-toggle::before {
+			display: inline-block;
+			width: 0;
+			height: 0;
+			margin-right: 0.3em;
+			vertical-align: 0.255em;
+			content: "";
+			border-top: 0.3em solid transparent;
+			border-right: 0.3em solid;
+			border-bottom: 0.3em solid transparent;
+		}
+		
+		.dropleft .dropdown-toggle:empty::after {
+			margin-left: 0;
+		}
+		
+		.dropleft .dropdown-toggle::before {
+			vertical-align: 0;
+		}
+		
+		.patent-toolbox a {
+			color: #fff;
+			text-decoration: none;
+		}
+		
+		.patent-toolbox a:hover, .patent-toolbox a:focus {
+			color: #374454;
+		}
+		
+		#mydiv {
+			position:absolute;
+			top:0;
+			right: 100px;
+			z-index: 9;
+			background-color: #f1f1f1;
+			width: 400px;
+			border: 1px solid #d3d3d3;
+		}
+		
+		#mydivheader {
+			padding: 10px;
+			cursor: move;
+			z-index: 10;
+			background-color: #2196F3;
+			color: #fff;
+		}
     </style>
 
     <script>
         $(function() {
-            dragElement(document.getElementById("aaa"));
             
-
-            $('#aaa').click(function(e) {
-                e.stopPropagation();
-            });
-
-            $('#bbb').click(function(e) {
-              e.stopPropagation();
-            });
-
-            $('#note').on({
-              "shown.bs.dropdown": function() { this.closable = false; },
-              "click":             function() { this.closable = true; },
-              "hide.bs.dropdown":  function() { return this.closable; }
-            });
-
-            $('#note1').on({
-              "shown.bs.dropdown": function() { this.closable = false; },
-              "click":             function() { this.closable = true; },
-              "hide.bs.dropdown":  function() { return this.closable; }
-            });
-            
-            
-
-            function dragElement(elmnt) {
-                var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-                if (document.getElementById(elmnt.id + "header")) {
-                    // if present, the header is where you move the DIV from:
-                    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-                } else {
-                    // otherwise, move the DIV from anywhere inside the DIV:
-                    elmnt.onmousedown = dragMouseDown;
-                }
-
-                function dragMouseDown(e) {
-                    e = e || window.event;
-                    e.preventDefault();
-                    // get the mouse cursor position at startup:
-                    pos3 = e.clientX;
-                    pos4 = e.clientY;
-                    document.onmouseup = closeDragElement;
-                    // call a function whenever the cursor moves:
-                    document.onmousemove = elementDrag;
-                }
-
-                function elementDrag(e) {
-                    e = e || window.event;
-                    e.preventDefault();
-                    // calculate the new cursor position:
-                    pos1 = pos3 - e.clientX;
-                    pos2 = pos4 - e.clientY;
-                    pos3 = e.clientX;
-                    pos4 = e.clientY;
-                    // set the element's new position:
-                    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-                }
-
-                function closeDragElement() {
-                    // stop moving when mouse button is released:
-                    document.onmouseup = null;
-                    document.onmousemove = null;
-                }
-            }
         });
 
     </script>
 </head>
 <body>
-    
+	<div id="toolbar">
+		<div id="mydiv" v-show="isFloatShow">
+			<div id="mydivheader">Click here to move</div>
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#card1">Card 1</a></li>
+				<li><a data-toggle="tab" href="#card2">Card 2</a></li>
+				<li><a data-toggle="tab" href="#card3">Card 3</a></li>
+				<li><a data-toggle="tab" href="#add">+ add</a></li>
+			</ul>
+					
+			<div class="tab-content">
+				<div id="card1" class="tab-pane fade in active">
+					<h3>Card 1</h3>
+					<p>Some content.</p>
+				</div>
+				<div id="card2" class="tab-pane fade">
+					<h3>Card 2</h3>
+					<p>Some content in card 2.</p>
+				</div>
+				<div id="card3" class="tab-pane fade">
+					<h3>Card 3</h3>
+					<p>Some content in card 3.</p>
+				</div>
+				<div id="add" class="tab-pane fade" style="margin-top: 10px">
+					<div class="col-md-3">
+						<label>Name:</label>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="form-control">
+					</div>
+					<div class="col-md-12">
+						<label>Identify From:</label>
+						<multiselect v-model="value" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
+					</div>
+					<div class="col-md-12">
+						<label>Comment:</label>
+						<input type="text" class="form-control">
+					</div>
+					<div class="col-md-12">
+						<label>Linked Account:</label>
+						<input type="text" class="form-control">
+					</div>
+					<div class="col-md-12">
+						<label>Suggest:</label>
+						<input type="text" class="form-control">
+					</div>
+					<div class="col-md-12" role="group" style="padding-top: 10px;">
+						<button type="button" class="btn btn-primary">Save</button>
+						<button type="button" class="btn btn-danger">Cancel</button>  
+					</div>
+				</div>
+			</div>
+		</div>
+	
     <!-- Toolbar -->
-    <div id="toolbar" class="menu">
-        <div id="note" class="dropleft patent-toolbox">
-            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="筆記" class="">
-              <i aria-hidden="true" class="fa fa-book"></i>
-            </a> 
-          
-            <ul id="aaa" class="dropdown-menu" style="width: 300px;position: absolute" draggable="true" @click.stop>
-              <div no-print="true" class="row fh5co-con" style="margin: 0px;border: 1px #000 dashed">
-                <div>
-                  <div class="alert alert-block" style="font-size: unset; border-color: transparent; margin: 0px;">
-                    <div>
-                      <button type="button" class="btn btn-lg btn-patent-note">
-                        <i aria-hidden="true" class=""></i>
-                          2019-09-10 <br/>
-                            comment 
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+		<div class="menu">
+			
 
-              <div no-print="true" class="row fh5co-con" style="margin: 0px;border: 1px #000 dashed;margin-top:10px">
-                <div>
-                  <div class="alert alert-block" style="font-size: unset; border-color: transparent; margin: 0px;">
-                    <div>
-                      <button type="button" class="btn btn-lg btn-patent-note">
-                        <i aria-hidden="true" class=""></i>
-                          2019-09-11 <br/>
-                            comment 1
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+			<div id="note" class="dropleft patent-toolbox">
 
-              <div no-print="true" class="row fh5co-con" style="margin: 0px;border: 1px #000 dashed;margin-top:10px">
-                <div>
-                  <div class="alert alert-block" style="font-size: unset; border-color: transparent; margin: 0px;">
-                    <div>
-                      <button type="button" class="btn btn-lg btn-patent-note">
-                        <i aria-hidden="true" class=""></i>
-                          + add comment
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ul>
-        </div>
+				<a href="#" aria-haspopup="true" aria-expanded="false" title="筆記" class=""  @click="isShowCard">
+					<i aria-hidden="true" class="fa fa-book"></i>
+				</a>
+			</div> 
 
-        <div id="note1" class="dropleft patent-toolbox">
-          <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="筆記" class="">
-            <i aria-hidden="true" class="fa fa-book"></i>
-          </a> 
-        
-          <ul id="bbb" class="dropdown-menu" style="width: 500px;position: fixed" draggable="true" @click.stop>
-            <div no-print="true" class="row fh5co-con" style="margin: 0px;">
-                <div>
-                  <div class="alert alert-block" style="font-size: unset; border-color: transparent; margin: 0px;">
-                    <div class="col-md-1">
-					  <label>Name</label>
+			<div id="note1" class="dropleft patent-toolbox">
+				<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="筆記" class="">
+					<i aria-hidden="true" class="fa fa-book"></i>
+				</a> 
+			
+				<ul id="bbb" class="dropdown-menu" style="width: 300px;position: fixed" draggable="true">
+					<div no-print="true" class="row fh5co-con" style="margin: 0px;">
+						<div>
+							<div class="alert alert-block" style="font-size: unset; border-color: transparent; margin: 0px;">
+								<div class="col-md-3">
+								<label>Name:</label>
+								</div>
+								<div class="col-md-9">
+								<input type="text" class="form-control">
+								</div>
+								<div class="col-md-12">
+								<label>Identify From:</label>
+								<multiselect v-model="value" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
+								</div>
+								<div class="col-md-12">
+								<label>Comment:</label>
+								<input type="text" class="form-control">
+								</div>
+								<div class="col-md-12">
+								<label>Linked Account:</label>
+								<input type="text" class="form-control">
+								</div>
+								<div class="col-md-12">
+								<label>Suggest:</label>
+								<input type="text" class="form-control">
+								</div>
+								<div class="col-md-12" role="group" style="padding-top: 10px;">
+								<button type="button" class="btn btn-primary">Save</button>
+								<button type="button" class="btn btn-danger">Cancel</button>  
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-3" style="padding-right: 2px">
-                      <input type="text" class="form-control">
-					</div>
-                    <div class="col-md-1">
-                      <label>Date</label>
-					</div>
-					<div class="col-md-7">
-                        <div class="input-group date" id="datetimepicker3">
-                            <input type="text" class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="fa fa-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                      <label>Identify From</label>
-                      <multiselect v-model="value" tag-placeholder="Add this as new tag" placeholder="Search or add a tag" label="name" track-by="code" :options="options" :multiple="true" :taggable="true" @tag="addTag"></multiselect>
-                    </div>
-                    <div class="col-md-12">
-                      <label>Comment</label>
-                      <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-12">
-                      <label>Linked Account</label>
-                      <input type="text" class="form-control">
-                    </div>
-                    <div class="col-md-12">
-                      <label>Suggest</label>
-                      <input type="text" class="form-control">
-                    </div>
-                  	<div class="col-md-12" role="group" style="padding-top: 10px;">
-					  <button type="button" class="btn btn-primary">Save</button>
-                      <button type="button" class="btn btn-danger">Cancel</button>  
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </ul>
-      </div>
-    </div>
+				</ul>
+			</div>
+		</div>
+	</div>
 
 	<script type="text/babel">
 		// 標籤多選
@@ -300,14 +247,16 @@
 						{ name: 'Vue.js'},
 						{ name: 'Javascript'},
 						{ name: 'Open Source'}
-					]
+					],
+					isFloatShow: false
 				}
 			},
 			mounted() {
-				this.initialDateTimePicker()
+				this.initialDateTimePicker(),
+				this.dragCard();
 			},
 			components: {
-				Multiselect
+				Multiselect,
 			},
 			methods: {
 				initialDateTimePicker() {
@@ -315,13 +264,60 @@
 						format: 'YYYY/MM/DD HH:mm:ss',
 					});
 				},
-				addTag (newTag) {
+				initialDrag(elmnt) {
+					var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+					if (document.getElementById(elmnt.id + "header")) {
+						// if present, the header is where you move the DIV from:
+						document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+					} else {
+						// otherwise, move the DIV from anywhere inside the DIV:
+						elmnt.onmousedown = dragMouseDown;
+					}
+	
+					function dragMouseDown(e) {
+						e = e || window.event;
+						e.preventDefault();
+						// get the mouse cursor position at startup:
+						pos3 = e.clientX;
+						pos4 = e.clientY;
+						document.onmouseup = closeDragElement;
+						// call a function whenever the cursor moves:
+						document.onmousemove = elementDrag;
+					}
+	
+					function elementDrag(e) {
+						e = e || window.event;
+						e.preventDefault();
+						// calculate the new cursor position:
+						pos1 = pos3 - e.clientX;
+						pos2 = pos4 - e.clientY;
+						pos3 = e.clientX;
+						pos4 = e.clientY;
+						// set the element's new position:
+						elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+						elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+					}
+	
+					function closeDragElement() {
+						// stop moving when mouse button is released:
+						document.onmouseup = null;
+						document.onmousemove = null;
+					}
+				},
+				dragCard() {
+					this.initialDrag(document.getElementById("mydiv"));
+				},
+				addTag(newTag) {
 					const tag = {
 					  name: newTag,
 					}
 					this.options.push(tag)
 					this.value.push(tag)
+				},
+				isShowCard() {
+					this.isFloatShow = !this.isFloatShow;
 				}
+
 			}
 		});
     </script>
