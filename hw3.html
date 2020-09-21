@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成員資料卡</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.3.10/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.3.10/dist/vuetify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
+
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+
+        * {
+            font-family: Lato;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <v-app id="inspire">
+            <div class="container">
+                <v-card class="mb-3" :elevation="10">
+                    <v-toolbar color="primary" dark flat>
+                        <v-toolbar-title>成員資料卡</v-toolbar-title>
+                    </v-toolbar>
+                    <v-card-title>
+                        <v-row>
+                            <v-col cols="6">
+                                <v-card class="mx-auto" max-width="400">
+                                    <v-img class="white--text align-end" height="200px"
+                                        src="/images/shukae.png">
+                                        <v-card-title>陳書凱 Shukae</v-card-title>
+                                    </v-img>
+
+                                    <v-simple-table dense>
+                                        <template v-slot:default>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-right">性別</td>
+                                                    <td>男</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">年次</td>
+                                                    <td>很有年紀了不好說</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">工作年資</td>
+                                                    <td>15y+</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">學歷</td>
+                                                    <td>台北商業大學資管系</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">專長</td>
+                                                    <td>一直說自己家徒四壁兩袖清風</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">嗜好</td>
+                                                    <td>土炮製作</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">興趣</td>
+                                                    <td>喝茶</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">優點</td>
+                                                    <td>好像會很多東西，又裝的都不會</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">缺點</td>
+                                                    <td>有點豐滿</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">工作目標</td>
+                                                    <td>完成老闆教辦事項並帶領 IT 團隊正常運行</td>
+                                                </tr>
+                                            </tbody>
+                                        </template>
+                                    </v-simple-table>
+                                </v-card>
+                            </v-col>
+
+                            <v-col cols="6">
+                                <v-card class="mx-auto" max-width="400">
+                                    <v-img class="white--text align-end" height="200px"
+                                        src="/images/tom.jpg">
+                                        <v-card-title>陳韋逸 Tom</v-card-title>
+                                    </v-img>
+
+                                    <v-simple-table dense>
+                                        <template v-slot:default>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-right">性別</td>
+                                                    <td>男</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">年次</td>
+                                                    <td>比前面年輕一點</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">工作年資</td>
+                                                    <td>10y+</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">學歷</td>
+                                                    <td>亞洲大學資管系</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">專長</td>
+                                                    <td>叫人幫他搬家然後他在吹冷氣</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">嗜好</td>
+                                                    <td>嗜酒</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">興趣</td>
+                                                    <td>跟上一個一樣喝茶</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">優點</td>
+                                                    <td>工作認真</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">缺點</td>
+                                                    <td>我收了 500 不能講</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right">工作目標</td>
+                                                    <td>完成書凱或我教辦的事項</td>
+                                                </tr>
+                                            </tbody>
+                                        </template>
+                                    </v-simple-table>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+                    </v-card-title>
+                </v-card>
+            </div>
+        </v-app>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify()
+        });
+    </script>
+</body>
+
+</html>
