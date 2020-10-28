@@ -1,135 +1,141 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 SUMMARY:Imported from Notion\, via notion-export-ics.
-TZID:Asia/Taipei
 BEGIN:VEVENT
 SUMMARY:2020.10.26 Spread Comparison for PUG and VCN
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/41a1cf1121e6473e8253a336a7dbec70\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x111002d00
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 Dividend Notification to Front Desk (Add KCM)
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/9be6756d29f140c38b214ef191c86ba0\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x1110023d0
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 Moneta Prime Dot pr Dot m Symbols (Check settings on We
  btrader) 
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/5a6ce61709c94803bb1134bc2190caa8\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x111002e80
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 Moneta Prime Dot pr Dot m Symbols (Notification)
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/6d0964f9ed2f491689b5d49e8133f60b\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x1110022e0
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 AU MT5 Remove No Suffix Gold from ECN Group (Check and 
  Notification)
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/abc4ddc9cd83402dbf545d937e8fb818\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x111002550
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 Moneta Remove HK shares (Notification)
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/e1c003fae0784d08a16794d40f1ab70c\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x1110026a0
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.30 Dividend and Swap Separation Tool (Notification to Infi
  nox UK after Ulas' Confirmation)
 DTSTART;VALUE=DATE:20201030
 DESCRIPTION:https://www.notion.so/b7b0d21763cc471787b29639a281fc96\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x111005040
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Add Training File to Confluence
 DTSTART;VALUE=DATE:20201130
 DESCRIPTION:https://www.notion.so/3fa88ef214ee49548e7dbed94b8de9a0\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x111005040
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 AU3 New Groups for ASIC with $2 Inst Forex and Gold (Ch
  eck and Notification)
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/36bb219153d345b399148b43e2d3e099\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x1110054f0
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:AU and UK Dot R bridge markup reduction for Five Symbols
 DTSTART;VALUE=DATE:20201023
 DESCRIPTION:https://www.notion.so/fdc630081c0747758b7a4f0036801b3d\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x111005400
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:AU3 New Groups for ASIC with $2 Inst Forex and Gold
 DTSTART;VALUE=DATE:20201130
 DESCRIPTION:https://www.notion.so/2f55637674474187b13f94836142cf62\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x1110054f0
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Dividend and Swap Separation Tool
 DTSTART;VALUE=DATE:20201116
 DESCRIPTION:https://www.notion.so/44314c1dc46d490891a54c5fc811c9fd\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x111005400
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Tier Margin Comparison and Recommendation
 DTSTART;VALUE=DATE:20201023
 DESCRIPTION:https://www.notion.so/e07142f134914b8d9f386117f1d43dc1\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x1110058b0
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.22 Fortnight Report
 DTSTART;VALUE=DATE:20201022
 DESCRIPTION:https://www.notion.so/9587f950fb1b4592a7f7956ed6aa2c72\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x1110059a0
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:AU MT5 Remove No Suffix Gold from ECN Group
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/5607df793136489a8e412ea09147d80b\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x1110059a0
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Trading Time Check for All Server
 DTSTART;VALUE=DATE:20201030
 DESCRIPTION:https://www.notion.so/dcb89245a123428e96ef5eb9a59ee99d\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x111005040
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Moneta Prime Dot pr Dot m Symbols
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/2438c2088d7e4b8aaab06e14da511161\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x1110058b0
- >\n
+ erties:\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:BHS2\, SVG Mini Gold
 DTSTART;VALUE=DATE:20201102
 DESCRIPTION:https://www.notion.so/3754a4d0fd364badb1c96c9afd9d0675\n\nProp
- erties:\n  - Due Date: <notion.collection.NotionDate object at 0x1110055e0
- >\n
+ erties:\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fortnight Report
+DESCRIPTION:https://www.notion.so/8e11b565b16449b1bbda3bbfef2886c6\n\nProp
+ erties:\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Spread Comparison for PUG and VCN
+DESCRIPTION:https://www.notion.so/a3ead32fb6f74648bb7f2082fbc185ca\n\nProp
+ erties:\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:November
+DESCRIPTION:https://www.notion.so/bf0e239ca50141b892fa01bbc5ab79fc\n\nProp
+ erties:\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:October
+DESCRIPTION:https://www.notion.so/1d5c92e1df9e43e3b63afa264c4b6e09\n\nProp
+ erties:\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Dividend Notification to Front Desk
+DESCRIPTION:https://www.notion.so/5bad3b36a80e4184af298486fed35a9c\n\nProp
+ erties:\n
 END:VEVENT
 END:VCALENDAR
