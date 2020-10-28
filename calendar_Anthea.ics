@@ -3,7 +3,7 @@ VERSION:2.0
 SUMMARY:Imported from Notion\, via notion-export-ics.
 BEGIN:VEVENT
 SUMMARY:2020.10.26 Spread Comparison for PUG and VCN
-DTSTART;VALUE=DATE:20201026
+DTSTART;VALUE=DATE-TIME:20201026T000000
 DESCRIPTION:https://www.notion.so/41a1cf1121e6473e8253a336a7dbec70\n\nProp
  erties:\n
 END:VEVENT
