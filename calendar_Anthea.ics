@@ -2,140 +2,373 @@ BEGIN:VCALENDAR
 VERSION:2.0
 SUMMARY:Imported from Notion\, via notion-export-ics.
 BEGIN:VEVENT
+SUMMARY:2020.10.29 BHS1 Swap and Dividend Separation Test
+DTSTART;VALUE=DATE:20201029
+DESCRIPTION:https://www.notion.so/a8365018317243868b4c133ab50e1502\n\nProp
+ erties:\n  - Type: None\n  - Server: []\n  - Ticket Number: None\n  - Time
+ line: None\n  - Created: 2020-10-28 05:51:06.701000\n  - Symbol Type: []\n
+   - Frequency: None\n  - Person in Charge: Brian\n  - Priority: None\n  - 
+ Status: In Progress\n  - Projects: 2020.10.29 BHS1 Swap and Dividend Separ
+ ation Test\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.29 BHS1 Swap and Dividend Separation Test
+DTSTART;VALUE=DATE:20201029
+DESCRIPTION:https://www.notion.so/18960253895443169316090666286a1c\n\nProp
+ erties:\n  - Type: None\n  - Server: []\n  - Ticket Number: None\n  - Time
+ line: None\n  - Created: 2020-10-28 05:50:00\n  - Symbol Type: []\n  - Fre
+ quency: None\n  - Person in Charge: Lesley\n  - Priority: None\n  - Status
+ : In Progress\n  - Projects: 2020.10.29 BHS1 Swap and Dividend Separation 
+ Test\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Alternative Gold\, Silver\, Oil and Indicies LPs recommendation
+DTSTART;VALUE=DATE:20201026
+DESCRIPTION:https://www.notion.so/b5650f927ac840ad8f9a5f804027384d\n\nProp
+ erties:\n  - Type: Report\n  - Server: []\n  - Ticket Number: None\n  - Ti
+ meline: None\n  - Created: 2020-10-26 01:17:00\n  - Symbol Type: []\n  - F
+ requency: None\n  - Person in Charge: Anthea\n  - Priority: None\n  - Stat
+ us: Archive\n  - Projects: Alternative Gold\, Silver\, Oil and Indicies LP
+ s recommendation\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.30 Check Margin for Competitors
+DTSTART;VALUE=DATE:20201030
+DESCRIPTION:https://www.notion.so/d8bb62a8aa664dd881723b560d624686\n\nProp
+ erties:\n  - Type: Report\n  - Server: ['All']\n  - Ticket Number: None\n 
+  - Timeline: None\n  - Created: 2020-10-23 08:57:33.407000\n  - Symbol Typ
+ e: []\n  - Frequency: Week\n  - Person in Charge: Brian\n  - Priority: P3\
+ n  - Status: Weekly\n  - Projects: 2020.10.30 Check Margin for Competitors
+ \n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.28 Check Margin for Competitors
+DTSTART;VALUE=DATE:20201028
+DESCRIPTION:https://www.notion.so/f5c790e628df4266b3ee0efcf632148d\n\nProp
+ erties:\n  - Type: Report\n  - Server: ['All']\n  - Ticket Number: None\n 
+  - Timeline: None\n  - Created: 2020-10-23 08:57:02.434000\n  - Symbol Typ
+ e: []\n  - Frequency: Week\n  - Person in Charge: Brian\n  - Priority: P3\
+ n  - Status: Weekly\n  - Projects: 2020.10.28 Check Margin for Competitors
+ \n
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:2020.10.26 Spread Comparison for PUG and VCN
-DTSTART;VALUE=DATE-TIME:20201026T000000
+DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/41a1cf1121e6473e8253a336a7dbec70\n\nProp
- erties:\n
+ erties:\n  - Type: Notification\n  - Server: ['VCN'\, 'PUG']\n  - Ticket N
+ umber: None\n  - Timeline: <notion.collection.NotionDate object at 0x105c9
+ 0f10>\n  - Created: 2020-10-23 08:56:31.025000\n  - Symbol Type: []\n  - F
+ requency: Week\n  - Person in Charge: Lesley\n  - Priority: P4\n  - Status
+ : Archive\n  - Projects: 2020.10.26 Spread Comparison for PUG and VCN\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 Dividend Notification to Front Desk (Add KCM)
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/9be6756d29f140c38b214ef191c86ba0\n\nProp
- erties:\n
+ erties:\n  - Type: Notification\n  - Server: ['VGP'\, 'VT'\, 'VCN'\, 'PUG'
+ \, 'All Infinox CN'\, 'All Infinox UK']\n  - Ticket Number: None\n  - Time
+ line: <notion.collection.NotionDate object at 0x105c90f10>\n  - Created: 2
+ 020-10-23 08:52:28.633000\n  - Symbol Type: []\n  - Frequency: Week\n  - P
+ erson in Charge: Lesley\n  - Priority: P5\n  - Status: Archive\n  - Projec
+ ts: 2020.10.26 Dividend Notification to Front Desk (Add KCM)\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.29 Corporate Action
+DTSTART;VALUE=DATE:20201029
+DESCRIPTION:https://www.notion.so/ca8134bb0adc4137b70b08f1c46f030e\n\nProp
+ erties:\n  - Type: Notification\n  - Server: ['All']\n  - Ticket Number: N
+ one\n  - Timeline: None\n  - Created: 2020-10-23 08:51:30.642000\n  - Symb
+ ol Type: []\n  - Frequency: Week\n  - Person in Charge: Brian\n  - Priorit
+ y: P3\n  - Status: Weekly\n  - Projects: 2020.10.29 Corporate Action\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 Moneta Prime Dot pr Dot m Symbols (Check settings on We
  btrader) 
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/5a6ce61709c94803bb1134bc2190caa8\n\nProp
- erties:\n
+ erties:\n  - Type: New Product Launching\n  - Server: ['Moneta']\n  - Tick
+ et Number: 10229\n  - Timeline: <notion.collection.NotionDate object at 0x
+ 105c905e0>\n  - Created: 2020-10-23 08:41:21.841000\n  - Symbol Type: ['Fo
+ rex'\, 'Gold'\, 'Oil']\n  - Frequency: None\n  - Person in Charge: Brian\n
+   - Priority: P2\n  - Status: Archive\n  - Projects: 2020.10.26 Moneta Pri
+ me Dot pr Dot m Symbols (Check settings on Webtrader) \n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.23 US Daylight Saving Notification (Remember to add the se
+ rver time is changing as well)
+DTSTART;VALUE=DATE:20201023
+DESCRIPTION:https://www.notion.so/4ed5be4a3beb4afbaa9d2b9f2706cd03\n\nProp
+ erties:\n  - Type: Notification\n  - Server: ['All']\n  - Ticket Number: N
+ one\n  - Timeline: None\n  - Created: 2020-10-23 04:26:13.179000\n  - Symb
+ ol Type: []\n  - Frequency: Month\n  - Person in Charge: Lesley\n  - Prior
+ ity: P2\n  - Status: Archive\n  - Projects: 2020.10.23 US Daylight Saving 
+ Notification (Remember to add the server time is changing as well)\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 Moneta Prime Dot pr Dot m Symbols (Notification)
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/6d0964f9ed2f491689b5d49e8133f60b\n\nProp
- erties:\n
+ erties:\n  - Type: New Product Launching\n  - Server: ['BHS2'\, 'GMN SVG']
+ \n  - Ticket Number: 10229\n  - Timeline: <notion.collection.NotionDate ob
+ ject at 0x105c90220>\n  - Created: 2020-10-22 07:36:34.713000\n  - Symbol 
+ Type: ['Forex'\, 'Gold'\, 'Oil']\n  - Frequency: None\n  - Person in Charg
+ e: Lesley\n  - Priority: P2\n  - Status: Archive\n  - Projects: 2020.10.26
+  Moneta Prime Dot pr Dot m Symbols (Notification)\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 AU MT5 Remove No Suffix Gold from ECN Group (Check and 
  Notification)
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/abc4ddc9cd83402dbf545d937e8fb818\n\nProp
- erties:\n
+ erties:\n  - Type: Product Optimization\n  - Server: ['AU MT5']\n  - Ticke
+ t Number: 9754\n  - Timeline: <notion.collection.NotionDate object at 0x10
+ 5c90c10>\n  - Created: 2020-10-22 07:17:37.477000\n  - Symbol Type: ['Gold
+ ']\n  - Frequency: None\n  - Person in Charge: Lesley\n  - Priority: P2\n 
+  - Status: Archive\n  - Projects: 2020.10.26 AU MT5 Remove No Suffix Gold 
+ from ECN Group (Check and Notification)\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 Moneta Remove HK shares (Notification)
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/e1c003fae0784d08a16794d40f1ab70c\n\nProp
- erties:\n
+ erties:\n  - Type: Task\n  - Server: ['Moneta']\n  - Ticket Number: None\n
+   - Timeline: <notion.collection.NotionDate object at 0x105c90640>\n  - Cr
+ eated: 2020-10-22 06:29:00\n  - Symbol Type: ['Shares']\n  - Frequency: No
+ ne\n  - Person in Charge: Lesley\n  - Priority: P2\n  - Status: Archive\n 
+  - Projects: 2020.10.26 Moneta Remove HK shares (Notification)\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.26 Check Margin for Competitors
+DTSTART;VALUE=DATE:20201026
+DESCRIPTION:https://www.notion.so/2acba1c151a341afa5dbe235c8c365fb\n\nProp
+ erties:\n  - Type: Report\n  - Server: ['All']\n  - Ticket Number: None\n 
+  - Timeline: None\n  - Created: 2020-10-22 03:25:21.858000\n  - Symbol Typ
+ e: []\n  - Frequency: Week\n  - Person in Charge: Anthea\n  - Priority: P3
+ \n  - Status: Archive\n  - Projects: 2020.10.26 Check Margin for Competito
+ rs\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.11.03 Symbol Table
+DTSTART;VALUE=DATE:20201103
+DESCRIPTION:https://www.notion.so/bcb3368cae064f72a7828b89af4ba555\n\nProp
+ erties:\n  - Type: Report\n  - Server: ['All']\n  - Ticket Number: None\n 
+  - Timeline: None\n  - Created: 2020-10-21 05:37:15.478000\n  - Symbol Typ
+ e: []\n  - Frequency: Month\n  - Person in Charge: Lesley\n  - Priority: P
+ 1\n  - Status: Week+\n  - Projects: 2020.11.03 Symbol Table\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:ASIC Group Check
+DTSTART;VALUE=DATE:20201023
+DESCRIPTION:https://www.notion.so/d4900bf959b54b759cbbe6bbb1b99850\n\nProp
+ erties:\n  - Type: Task\n  - Server: ['VGP']\n  - Ticket Number: None\n  -
+  Timeline: None\n  - Created: 2020-10-21 01:13:00\n  - Symbol Type: []\n  
+ - Frequency: None\n  - Person in Charge: Anthea\n  - Priority: None\n  - S
+ tatus: Archive\n  - Projects: ASIC Group Check\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.30 Dividend and Swap Separation Tool (Notification to Infi
  nox UK after Ulas' Confirmation)
 DTSTART;VALUE=DATE:20201030
 DESCRIPTION:https://www.notion.so/b7b0d21763cc471787b29639a281fc96\n\nProp
- erties:\n
+ erties:\n  - Type: New Product Launching\n  - Server: ['All']\n  - Ticket 
+ Number: None\n  - Timeline: <notion.collection.NotionDate object at 0x105c
+ 90220>\n  - Created: 2020-10-20 07:43:36.627000\n  - Symbol Type: ['Indice
+ s']\n  - Frequency: None\n  - Person in Charge: Lesley\n  - Priority: P1\n
+   - Status: Weekly\n  - Projects: 2020.10.30 Dividend and Swap Separation 
+ Tool (Notification to Infinox UK after Ulas' Confirmation)\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Add Training File to Confluence
 DTSTART;VALUE=DATE:20201130
 DESCRIPTION:https://www.notion.so/3fa88ef214ee49548e7dbed94b8de9a0\n\nProp
- erties:\n
+ erties:\n  - Type: None\n  - Server: []\n  - Ticket Number: None\n  - Time
+ line: <notion.collection.NotionDate object at 0x104be19a0>\n  - Created: 2
+ 020-10-20 07:13:00\n  - Symbol Type: []\n  - Frequency: None\n  - Person i
+ n Charge: Anthea\n  - Priority: P2\n  - Status: Random\n  - Projects: Add 
+ Training File to Confluence\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.21 AU and UK Dot R bridge markup reduction for Five Symbol
+ s
+DTSTART;VALUE=DATE:20201023
+DESCRIPTION:https://www.notion.so/45e3101afcf6437bbcbafdb431490002\n\nProp
+ erties:\n  - Type: Product Optimization\n  - Server: ['VGP']\n  - Ticket N
+ umber: None\n  - Timeline: None\n  - Created: 2020-10-20 07:12:08.169000\n
+   - Symbol Type: ['Indices']\n  - Frequency: None\n  - Person in Charge: L
+ esley\n  - Priority: None\n  - Status: Archive\n  - Projects: 2020.10.21 A
+ U and UK Dot R bridge markup reduction for Five Symbols\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.26 AU3 New Groups for ASIC with $2 Inst Forex and Gold (Ch
  eck and Notification)
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/36bb219153d345b399148b43e2d3e099\n\nProp
- erties:\n
+ erties:\n  - Type: Task\n  - Server: ['VGP']\n  - Ticket Number: 10364\n  
+ - Timeline: <notion.collection.NotionDate object at 0x104be1640>\n  - Crea
+ ted: 2020-10-20 07:09:54.395000\n  - Symbol Type: []\n  - Frequency: None\
+ n  - Person in Charge: Lesley\n  - Priority: P5\n  - Status: Archive\n  - 
+ Projects: 2020.10.26 AU3 New Groups for ASIC with $2 Inst Forex and Gold (
+ Check and Notification)\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:AU and UK Dot R bridge markup reduction for Five Symbols
 DTSTART;VALUE=DATE:20201023
 DESCRIPTION:https://www.notion.so/fdc630081c0747758b7a4f0036801b3d\n\nProp
- erties:\n
+ erties:\n  - Type: Product Optimization\n  - Server: ['VGP']\n  - Ticket N
+ umber: 10393\n  - Timeline: <notion.collection.NotionDate object at 0x104b
+ e1640>\n  - Created: 2020-10-20 05:44:00\n  - Symbol Type: ['Indices']\n  
+ - Frequency: None\n  - Person in Charge: Ticket\n  - Priority: P3\n  - Sta
+ tus: Complete\n  - Projects: AU and UK Dot R bridge markup reduction for F
+ ive Symbols\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:AU3 New Groups for ASIC with $2 Inst Forex and Gold
 DTSTART;VALUE=DATE:20201130
 DESCRIPTION:https://www.notion.so/2f55637674474187b13f94836142cf62\n\nProp
- erties:\n
+ erties:\n  - Type: Task\n  - Server: ['VGP']\n  - Ticket Number: 10364\n  
+ - Timeline: <notion.collection.NotionDate object at 0x104be18b0>\n  - Crea
+ ted: 2020-10-20 02:55:00\n  - Symbol Type: []\n  - Frequency: None\n  - Pe
+ rson in Charge: Ticket\n  - Priority: P5\n  - Status: In Progress\n  - Pro
+ jects: AU3 New Groups for ASIC with $2 Inst Forex and Gold\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Dividend and Swap Separation Tool
 DTSTART;VALUE=DATE:20201116
 DESCRIPTION:https://www.notion.so/44314c1dc46d490891a54c5fc811c9fd\n\nProp
- erties:\n
+ erties:\n  - Type: New Product Launching\n  - Server: ['All']\n  - Ticket 
+ Number: None\n  - Timeline: <notion.collection.NotionDate object at 0x104b
+ e1640>\n  - Created: 2020-10-19 10:05:00\n  - Symbol Type: ['Indices']\n  
+ - Frequency: None\n  - Person in Charge: Ticket\n  - Priority: P1\n  - Sta
+ tus: In Progress\n  - Projects: Dividend and Swap Separation Tool\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.21 Check Margin for Competitors
+DTSTART;VALUE=DATE:20201021
+DESCRIPTION:https://www.notion.so/4986d238caa64464bcd80d375ff95f8a\n\nProp
+ erties:\n  - Type: Report\n  - Server: ['All']\n  - Ticket Number: None\n 
+  - Timeline: None\n  - Created: 2020-10-19 08:23:35.149000\n  - Symbol Typ
+ e: []\n  - Frequency: Week\n  - Person in Charge: Anthea\n  - Priority: P3
+ \n  - Status: Archive\n  - Projects: 2020.10.21 Check Margin for Competito
+ rs\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.26 US Daylight Saving Notification (Remember to add the se
+ rver time is changing as well)
+DTSTART;VALUE=DATE:20201026
+DESCRIPTION:https://www.notion.so/23197995f206452faec3eaa0637f4bca\n\nProp
+ erties:\n  - Type: Notification\n  - Server: ['All']\n  - Ticket Number: N
+ one\n  - Timeline: None\n  - Created: 2020-10-19 08:17:52.392000\n  - Symb
+ ol Type: []\n  - Frequency: Month\n  - Person in Charge: Brian\n  - Priori
+ ty: P2\n  - Status: Archive\n  - Projects: 2020.10.26 US Daylight Saving N
+ otification (Remember to add the server time is changing as well)\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.30 Holiday Notification
+DTSTART;VALUE=DATE:20201030
+DESCRIPTION:https://www.notion.so/637e5d1b22064936b153e3bb35e1f408\n\nProp
+ erties:\n  - Type: Notification\n  - Server: ['All']\n  - Ticket Number: N
+ one\n  - Timeline: None\n  - Created: 2020-10-19 08:16:48.785000\n  - Symb
+ ol Type: []\n  - Frequency: Month\n  - Person in Charge: Brian\n  - Priori
+ ty: P2\n  - Status: Weekly\n  - Projects: 2020.10.30 Holiday Notification\
+ n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Tier Margin Comparison and Recommendation
 DTSTART;VALUE=DATE:20201023
 DESCRIPTION:https://www.notion.so/e07142f134914b8d9f386117f1d43dc1\n\nProp
- erties:\n
+ erties:\n  - Type: Task\n  - Server: ['All']\n  - Ticket Number: None\n  -
+  Timeline: <notion.collection.NotionDate object at 0x105c697f0>\n  - Creat
+ ed: 2020-10-19 08:06:33.245000\n  - Symbol Type: ['All']\n  - Frequency: N
+ one\n  - Person in Charge: Brian\n  - Priority: P3\n  - Status: Complete\n
+   - Projects: Tier Margin Comparison and Recommendation\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.23 Symbol Table
+DTSTART;VALUE=DATE:20201023
+DESCRIPTION:https://www.notion.so/fbcd3b43c96646e49626ecb85921e243\n\nProp
+ erties:\n  - Type: Report\n  - Server: ['All']\n  - Ticket Number: None\n 
+  - Timeline: None\n  - Created: 2020-10-19 07:40:58.039000\n  - Symbol Typ
+ e: []\n  - Frequency: Month\n  - Person in Charge: Lesley\n  - Priority: P
+ 1\n  - Status: Archive\n  - Projects: 2020.10.23 Symbol Table\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.27 Vivian Report (Spread Comparison for Competitors)
+DTSTART;VALUE=DATE:20201027
+DESCRIPTION:https://www.notion.so/124d20d76b0f44719194ff6602603738\n\nProp
+ erties:\n  - Type: Report\n  - Server: ['All']\n  - Ticket Number: None\n 
+  - Timeline: None\n  - Created: 2020-10-19 07:39:22.425000\n  - Symbol Typ
+ e: []\n  - Frequency: Month\n  - Person in Charge: Brian\n  - Priority: P2
+ \n  - Status: Weekly\n  - Projects: 2020.10.27 Vivian Report (Spread Compa
+ rison for Competitors)\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.20 UK Daylight Saving Notification
+DTSTART;VALUE=DATE:20201020
+DESCRIPTION:https://www.notion.so/b632dd643b8a4c60ab1d5e2f20016141\n\nProp
+ erties:\n  - Type: Notification\n  - Server: ['All']\n  - Ticket Number: N
+ one\n  - Timeline: None\n  - Created: 2020-10-19 07:31:50.178000\n  - Symb
+ ol Type: []\n  - Frequency: Month\n  - Person in Charge: Brian\n  - Priori
+ ty: P2\n  - Status: Archive\n  - Projects: 2020.10.20 UK Daylight Saving N
+ otification\n
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2020.10.22 Corporate Action
+DTSTART;VALUE=DATE:20201022
+DESCRIPTION:https://www.notion.so/a56b071ee1204ad4aafde157be86ebcf\n\nProp
+ erties:\n  - Type: Notification\n  - Server: ['All']\n  - Ticket Number: N
+ one\n  - Timeline: None\n  - Created: 2020-10-19 07:28:42.547000\n  - Symb
+ ol Type: []\n  - Frequency: Week\n  - Person in Charge: Brian\n  - Priorit
+ y: P3\n  - Status: Archive\n  - Projects: 2020.10.22 Corporate Action\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:2020.10.22 Fortnight Report
 DTSTART;VALUE=DATE:20201022
 DESCRIPTION:https://www.notion.so/9587f950fb1b4592a7f7956ed6aa2c72\n\nProp
- erties:\n
+ erties:\n  - Type: Report\n  - Server: ['All']\n  - Ticket Number: None\n 
+  - Timeline: <notion.collection.NotionDate object at 0x1048a3df0>\n  - Cre
+ ated: 2020-10-19 07:20:26.430000\n  - Symbol Type: []\n  - Frequency: Fort
+ night\n  - Person in Charge: Lesley\n  - Priority: P2\n  - Status: Archive
+ \n  - Projects: 2020.10.22 Fortnight Report\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:AU MT5 Remove No Suffix Gold from ECN Group
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/5607df793136489a8e412ea09147d80b\n\nProp
- erties:\n
+ erties:\n  - Type: Product Optimization\n  - Server: ['AU MT5']\n  - Ticke
+ t Number: 9754\n  - Timeline: <notion.collection.NotionDate object at 0x10
+ 48a3df0>\n  - Created: 2020-10-19 06:51:00\n  - Symbol Type: ['Gold']\n  -
+  Frequency: None\n  - Person in Charge: Ticket\n  - Priority: P2\n  - Stat
+ us: Complete\n  - Projects: AU MT5 Remove No Suffix Gold from ECN Group\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Trading Time Check for All Server
 DTSTART;VALUE=DATE:20201030
 DESCRIPTION:https://www.notion.so/dcb89245a123428e96ef5eb9a59ee99d\n\nProp
- erties:\n
+ erties:\n  - Type: Task\n  - Server: ['All']\n  - Ticket Number: None\n  -
+  Timeline: <notion.collection.NotionDate object at 0x1048a3c10>\n  - Creat
+ ed: 2020-10-19 06:42:00\n  - Symbol Type: ['All']\n  - Frequency: None\n  
+ - Person in Charge: Brian\n  - Priority: P5\n  - Status: Weekly\n  - Proje
+ cts: Trading Time Check for All Server\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Moneta Prime Dot pr Dot m Symbols
 DTSTART;VALUE=DATE:20201026
 DESCRIPTION:https://www.notion.so/2438c2088d7e4b8aaab06e14da511161\n\nProp
- erties:\n
+ erties:\n  - Type: New Product Launching\n  - Server: ['BHS2'\, 'GMN SVG']
+ \n  - Ticket Number: 10229\n  - Timeline: <notion.collection.NotionDate ob
+ ject at 0x1048a3df0>\n  - Created: 2020-10-19 06:35:16.762000\n  - Symbol 
+ Type: ['Forex'\, 'Gold'\, 'Oil']\n  - Frequency: None\n  - Person in Charg
+ e: Ticket\n  - Priority: P2\n  - Status: Complete\n  - Projects: Moneta Pr
+ ime Dot pr Dot m Symbols\n
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:BHS2\, SVG Mini Gold
 DTSTART;VALUE=DATE:20201102
 DESCRIPTION:https://www.notion.so/3754a4d0fd364badb1c96c9afd9d0675\n\nProp
- erties:\n
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Fortnight Report
-DESCRIPTION:https://www.notion.so/8e11b565b16449b1bbda3bbfef2886c6\n\nProp
- erties:\n
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Spread Comparison for PUG and VCN
-DESCRIPTION:https://www.notion.so/a3ead32fb6f74648bb7f2082fbc185ca\n\nProp
- erties:\n
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:November
-DESCRIPTION:https://www.notion.so/bf0e239ca50141b892fa01bbc5ab79fc\n\nProp
- erties:\n
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:October
-DESCRIPTION:https://www.notion.so/1d5c92e1df9e43e3b63afa264c4b6e09\n\nProp
- erties:\n
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Dividend Notification to Front Desk
-DESCRIPTION:https://www.notion.so/5bad3b36a80e4184af298486fed35a9c\n\nProp
- erties:\n
+ erties:\n  - Type: New Product Launching\n  - Server: ['BHS2'\, 'GMN SVG']
+ \n  - Ticket Number: 10300\n  - Timeline: <notion.collection.NotionDate ob
+ ject at 0x1048a3ac0>\n  - Created: 2020-10-19 06:22:00\n  - Symbol Type: [
+ 'Gold']\n  - Frequency: None\n  - Person in Charge: Ticket\n  - Priority: 
+ P2\n  - Status: In Progress\n  - Projects: BHS2\, SVG Mini Gold\n
 END:VEVENT
 END:VCALENDAR
