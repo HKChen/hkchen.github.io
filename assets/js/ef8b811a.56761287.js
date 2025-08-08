@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhktech=self.webpackChunkhktech||[]).push([[8947],{6600:e=>{e.exports=JSON.parse('{"authors":[{"name":"HK Chen","title":"Cloud Engineer","url":"https://blog.hkchen.tech/","page":{"permalink":"/blog/authors/hkchen"},"socials":{"github":"https://github.com/hkchen"},"imageURL":"/img/hktech-joker-avatar.svg","key":"hkchen","count":4}]}')}}]);
